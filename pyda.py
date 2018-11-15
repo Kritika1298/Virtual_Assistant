@@ -53,7 +53,7 @@ class MyFrame(wx.Frame):
                 print (answer)
                 engine.say(question)
                 engine.runAndWait()
-                engine.say("is :" + answer)
+                engine.say(question + "is :" + answer)
                 engine.runAndWait()
 
             except:
