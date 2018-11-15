@@ -43,27 +43,27 @@ class MyFrame(wx.Frame):
             except sr.RequestError as e:
                 print "Could not request results from Google Speech Recognition service; {0}".format(e)
 
+        else
+            try:
+                wolframalpha
+                app_id = "3QW4X2-H62XWXHH2J"  #app_id of wolframalpha after signing up
+                client = wolframalpha.Client(app_id) #calling client using app_id
+                result = client.query(question)
+                answer = next(result.results).text
+                print (answer)
+                engine.say(question)
+                engine.runAndWait()
+                engine.say("is :" + answer)
+                engine.runAndWait()
 
-        try:
-            wolframalpha
-            app_id = "3QW4X2-H62XWXHH2J"  #app_id of wolframalpha after signing up
-            client = wolframalpha.Client(app_id) #calling client using app_id
-            result = client.query(question)
-            answer = next(result.results).text
-            print (answer)
-            engine.say(question)
-            engine.runAndWait()
-            engine.say("is :" + answer)
-            engine.runAndWait()
-
-        except:
-            wikipedia
-            #wikipedia.set_lang("eng")
-            question= question.split(" ")
-            question = " ".join(question[2:])
-            engine.say("Searched for" + question)
-            engine.runAndWait()
-            print wikipedia.summary(question)
+            except:
+                wikipedia
+                #wikipedia.set_lang("eng")
+                question= question.split(" ")
+                question = " ".join(question[2:])
+                engine.say("Searched for" + question)
+                engine.runAndWait()
+                print wikipedia.summary(question)
 
 
 if __name__ == "__main__":
